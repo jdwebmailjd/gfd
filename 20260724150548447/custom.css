@@ -1,0 +1,79 @@
+:root {
+  --aura-bg-1: #f6efe5;
+  --aura-bg-2: #e7f0ff;
+  --aura-bg-3: #fbfcff;
+  --aura-primary: #1457af;
+  --aura-border: rgba(17, 24, 39, 0.08);
+  --aura-shadow: 0 24px 70px rgba(26, 35, 65, 0.15);
+}
+
+body {
+  background:
+    radial-gradient(960px 580px at -10% -10%, #ffedd0 0%, transparent 58%),
+    radial-gradient(760px 460px at 110% 0%, #d8ebff 0%, transparent 62%),
+    linear-gradient(155deg, var(--aura-bg-1) 0%, var(--aura-bg-2) 52%, var(--aura-bg-3) 100%);
+  color: #0f172a;
+}
+
+#app > div {
+  max-width: 1240px;
+  width: calc(100% - 2rem);
+  margin: 1rem auto;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid var(--aura-border);
+  box-shadow: var(--aura-shadow);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: aura-rise 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+#app main {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 252, 255, 0.9) 100%) !important;
+}
+
+#app aside {
+  background: linear-gradient(180deg, rgba(244, 248, 255, 0.94) 0%, rgba(232, 241, 255, 0.9) 100%) !important;
+}
+
+#app button,
+#app a[class*="rounded"] {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+#app button:hover,
+#app a[class*="rounded"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.16);
+}
+
+#open-invitation {
+  background: linear-gradient(135deg, #1a73e8 0%, var(--aura-primary) 100%) !important;
+}
+
+#open-invitation:focus-visible,
+#account-selector:focus-visible {
+  outline: 3px solid rgba(26, 115, 232, 0.35);
+  outline-offset: 2px;
+}
+
+@keyframes aura-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 1023px) {
+  #app > div {
+    width: calc(100% - 1.25rem);
+    margin: 0.625rem auto;
+    border-radius: 18px;
+  }
+}

