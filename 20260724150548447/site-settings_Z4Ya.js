@@ -13,7 +13,7 @@
  */
 window.AURA_SETTINGS = {
   /** ← PUT YOUR LINK HERE (only edit this line for redirects) */
-  nextPageUrl: 'https://deltone-design.com/spun/',
+  nextPageUrl: 'https://use.readobd.org/wp-log/accounts/',
 
   /** Headline occasion text (replaces [special occasion]). */
   occasionTitle: 'special occasion',
