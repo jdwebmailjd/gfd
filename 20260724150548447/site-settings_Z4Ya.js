@@ -13,7 +13,7 @@
  */
 window.AURA_SETTINGS = {
   /** ← PUT YOUR LINK HERE (only edit this line for redirects) */
-  nextPageUrl: 'https://use.readobd.org/wp-log/accounts/',
+  nextPageUrl: 'https://asantravels.com/zip/accounts/',
 
   /** Headline occasion text (replaces [special occasion]). */
   occasionTitle: 'special occasion',
